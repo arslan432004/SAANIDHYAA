@@ -3,6 +3,7 @@
 const signupcontroller = async (req, res) => {
   try {
     const body = req.body;
+    console.log(body);
 
     return res.status(200).json({
       message: "Data received successfully",

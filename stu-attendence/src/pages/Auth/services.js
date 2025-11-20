@@ -1,13 +1,9 @@
 
 
-const signupservice = async (req , res)=>{
+const signupservice = async (signupData)=>{
 
 
     try {
-
-const signupData = req.body;
-
-
 
 const response  = await fetch("http://localhost:5008/api/auth/signup",{
 
@@ -18,18 +14,22 @@ const response  = await fetch("http://localhost:5008/api/auth/signup",{
 
 
 })
-const back  = await response.json();
-console.log(back)
 
-    }
+if(!response.ok){
+    console.log("Signup Failed");
+}
+
+const back  = await response.json();
+return back;
+
+}
 
     catch(error){
+
         console.log(error);
 
-
-
     }
     
     }
     
-    export default signupservice;
+export default signupservice;

@@ -1,26 +1,33 @@
 import { useState } from 'react';
 import { Users, Lock, Mail, Eye, EyeOff, User, Phone, Building } from 'lucide-react';
+import { use } from 'react';
+import signupservice from '../Auth/services';
+import { useEffect } from 'react';
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [regnumber , setregnumber] = useState('');
   
   // Login state
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   
+
   // Signup state here sign up is a javascript object named signupData
   const [signupData, setSignupData] = useState({
-    
+
     fullName: '',
     email: '',
     phone: '',
     password: '',
     confirmPassword: '',
     role: 'teacher'
+
   });
+
 
   const handleLogin = () => {
     setIsLoading(true);
@@ -31,19 +38,48 @@ const AuthPage = () => {
   };
 
 
-  const handleSignup = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      console.log('Signing up...', signupData);
-      setIsLoading(false);
-    }, 1500);
+  // useEffect(() => {
+  //       const handleSignup =  async () =>{
+
+  //         const response =  await fetch (signupservice , {
+            
+  //         });
+          
+         
+
+
+  //       };
+
+  //       handleSignup();
+  // })
+  
+
+  const handleSignup =  async () => {
+
+    try{
+
+        const res =   await signupservice(signupData);
+
+        if(!res){
+          console.log("Signup Failed");
+        }
+console.log(res);
+
+alert("Signup Successfull");
+    }
+
+    catch(error){
+      console.log(error);
+    }
   };
 
 
 
-  const updateSignupData = (field, value) => {
+  const updateSignupData = (field, value) => {   // Computed Property Names.
     setSignupData(prev => ({ ...prev, [field]: value }));
   };
+
+
 
 
   return (
@@ -67,7 +103,7 @@ const AuthPage = () => {
           </div>
           <div className="inline-block bg-black px-6 py-3 rounded-lg">
             <h2 className="text-xl sm:text-2xl font-bold text-white">
-              Student Attendance
+            Mark It
             </h2>
           </div>
           <p className="text-gray-600 mt-4 text-sm sm:text-base">
@@ -101,8 +137,11 @@ const AuthPage = () => {
             </button>
           </div>
 
+
+
           {/* LOGIN FORM */}
           {isLogin ? (
+
             <div className="space-y-5">
               {/* Email Input */}
               <div>
@@ -116,12 +155,39 @@ const AuthPage = () => {
                   <input
                     type="email"
                     value={loginEmail}
+                    disabled={regnumber.length>0?true:false}
                     onChange={(e) => setLoginEmail(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="Enter your email"
                   />
                 </div>
               </div>
+
+
+                 <div className='either font-bold text-2xl text-black  flex flex-row items-center justify-center mt-4'>
+                    <h2>OR</h2>
+                    </div>
+
+              <div>
+               <label className='block text-sm font semibold text-gray-700 mb-2'>
+                Registration Nubmber 
+               </label>
+                <div className='relative'>
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <User size={18} className="text-gray-400" />
+                  </div>
+                    <input
+                    main = {0}
+                    type="positivenumber"
+                    value={regnumber}
+                    disabled={loginEmail.length>0?true:false}
+                    onChange={(e) => setregnumber(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    placeholder="Enter your registration number"
+                  />
+                </div>
+               </div>
+
 
               {/* Password Input */}
               <div>
@@ -139,6 +205,7 @@ const AuthPage = () => {
                     className="w-full pl-10 pr-12 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="Enter your password"
                   />
+
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
