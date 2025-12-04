@@ -113,8 +113,6 @@ return (
       </div>
 
   <div className="fixed bottom-10 sm:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col gap-2 items-center">
-
-    
     <Skipbutton  onClick={()=>{navigate('/login')}} text="Skip..." css="text-white font-bold p-1 text-lg sm:text-2xl" />
 
   </div>
