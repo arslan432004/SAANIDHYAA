@@ -1,33 +1,36 @@
-import React from "react";
+import React, { use } from "react";
 import { Swiper, SwiperSlide , useSwiper } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { FaPenFancy } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
-const Slidebutton = ({text , css })=>{
+const Slidebutton = ({text , css  })=>{
 
 const swiper = useSwiper();
+
 return (
+
 <div className=" flex flex-row  p-2  items-center justify-center ">
     <button className={css} 
     onClick={() => swiper.slideNext()}>{text}</button>
 
-    
 </div>
-
 
 )
 }
 
-const Skipbutton = ({text , css})=>{
+const Skipbutton = ({text , css , onClick})=>{
 
 return (
+
 <div className=" flex flex-row  p-2  items-center justify-center">
     <button className={css} 
-    onClick={()=>{}}>{text}</button>
+    onClick={onClick}>{text}</button>
 </div>
+
 )
 
 
@@ -36,6 +39,7 @@ return (
 
 export default function Introslides(){
 
+  const navigate = useNavigate();
 return (
 
 <div className="h-screen w-screen overflow-hidden">
@@ -43,8 +47,16 @@ return (
   <Swiper
     modules={[Autoplay, Pagination]}
     pagination={{ clickable: true , dynamicBullets: true  }}
-    loop={true}
+    // loop={true}
     // autoplay={{ delay: 3000  }}
+    // onReachEnd={()=>{
+
+    //   setTimeout(()=>{
+    //      navigate('/login');
+    //   }, 1500)
+     
+    // }}
+
     className="h-full w-full">
 
 <SwiperSlide>
@@ -77,14 +89,15 @@ return (
 
   {/* Buttons */}
   <div className="fixed bottom-10 sm:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col gap-2 items-center">
+
     <Slidebutton text="Next" css="bg-black text-white font-bold px-6 py-2 rounded-md text-2xl sm:text-3xl" />
-    <Skipbutton text="Skip..." css="text-black font-bold p-1 text-lg sm:text-2xl" />
+    <Skipbutton  onClick={()=>{navigate('/login')}} text="Skip..." css="text-black font-bold p-1 text-lg sm:text-2xl" />
+
   </div>
 
 </div>
 
 </SwiperSlide>
-
 
 
     <SwiperSlide>
@@ -98,7 +111,17 @@ return (
       <div className="h-screen flex items-center justify-center bg-black text-white text-4xl font-bold">
         Get Started!
       </div>
+
+  <div className="fixed bottom-10 sm:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col gap-2 items-center">
+
+    
+    <Skipbutton  onClick={()=>{navigate('/login')}} text="Skip..." css="text-white font-bold p-1 text-lg sm:text-2xl" />
+
+  </div>
+
     </SwiperSlide>
+
+
 
   </Swiper>
 </div>
