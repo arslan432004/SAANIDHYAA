@@ -23,7 +23,7 @@ const App = () => {
         {/* Protected Dashboard */}
         <Route
           path="/dashboard"
-          
+
           element={
         
               <Sidebar>
@@ -33,8 +33,7 @@ const App = () => {
           }
         />
 
-       
-
+    
       </Routes>
     </BrowserRouter>
   );
