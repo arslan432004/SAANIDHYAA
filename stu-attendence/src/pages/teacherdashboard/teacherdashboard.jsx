@@ -20,7 +20,6 @@ const Teacherdashboard = () => {
         ${isOpen ? "ml-64" : "ml-0"}`}
       >
 
-
         {/* navabr same toggle function as side bar  */}
         {/* menu button in navbar toggles the sidebar */}
         <Navbar toggle={() => setIsOpen(!isOpen)} />

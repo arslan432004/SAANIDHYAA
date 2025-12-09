@@ -47,6 +47,7 @@ return (
   <Swiper
     modules={[Autoplay, Pagination]}
     pagination={{ clickable: true , dynamicBullets: true  }}
+
     // loop={true}
     // autoplay={{ delay: 3000  }}
     // onReachEnd={()=>{
@@ -56,6 +57,7 @@ return (
     //   }, 1500)
      
     // }}
+
 
     className="h-full w-full">
 
@@ -98,7 +100,6 @@ return (
 </div>
 
 </SwiperSlide>
-
 
     <SwiperSlide>
       <div className="h-screen flex items-center justify-center bg-green-500 text-white text-4xl font-bold">

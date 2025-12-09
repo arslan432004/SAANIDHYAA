@@ -3,11 +3,11 @@ import Introslides from "./components/common/introslider";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import LoginPage from "./pages/Auth/LoginPage";
 // import SignupPage from "./pages/Auth/SignupPage";
-import Dashboard2 from "./pages/Dashboard/dashboard2";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/layout/Sidebar";
+import Teacherdashboard from "./pages/teacherdashboard/teacherdashboard";
 // import ProtectedRoute from "./components/auth/ProtectedRoute";
-
+import Navbar from "./components/teachercomponents/navbar";
 const App = () => {
   return (
     <BrowserRouter>
@@ -25,13 +25,25 @@ const App = () => {
           path="/dashboard"
 
           element={
-        
+        <>
               <Sidebar>
                 <Dashboard />
               </Sidebar>
+
+             
+
+              </>
             
           }
         />
+
+       <Route path="/teacher" element={<Teacherdashboard />}>
+        {/* Child routes (they appear inside <Outlet>) */}
+        <Route path="dashboard" element={<Dashboard />} />
+      </Route>
+
+        <Route path="/navbar" element
+        = {<Navbar/>}></Route>
 
     
       </Routes>

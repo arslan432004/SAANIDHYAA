@@ -2,7 +2,6 @@
 
 const signupservice = async (signupData)=>{
 
-
     try {
 
 const response  = await fetch("http://localhost:5008/api/auth/signup",{

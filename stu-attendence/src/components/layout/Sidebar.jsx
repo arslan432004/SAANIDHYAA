@@ -14,6 +14,8 @@ import {
   BarChart
 } from 'lucide-react';
 
+
+
 const Sidebar = ({children}) => {
   // State for mobile menu toggle
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -125,6 +127,10 @@ const Sidebar = ({children}) => {
 
     return (
 
+
+
+      
+
       <div key={item.id} className="mb-1">
         {/* Main Menu Item */}
         <button
@@ -191,7 +197,7 @@ const Sidebar = ({children}) => {
           ======================================== */}
       <button
         onClick={toggleMobileMenu}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg hover:bg-gray-50 transition-all"
+        className="fixed  top-2 left-[15rem] z-50 p-2 bg-gray-50 rounded-lg shadow-lg hover:bg-gray-50 transition-all"
       >
         {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -202,7 +208,7 @@ const Sidebar = ({children}) => {
       {isMobileMenuOpen && (
         <div
           onClick={toggleMobileMenu}
-          className="lg:hidden fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
+          className=" "
         />
       )}
 
@@ -215,7 +221,7 @@ const Sidebar = ({children}) => {
           transition-transform duration-300 ease-in-out z-40
           w-64 flex flex-col
           ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
-          lg:translate-x-0
+          
         `}
       >
         {/* ========================================
@@ -252,23 +258,7 @@ const Sidebar = ({children}) => {
           </div>
         </div>
 
-        {/* ========================================
-            USER PROFILE SECTION (Optional)
-            Uncomment to add user info at bottom
-            ======================================== */}
-        {/* 
-        <div className="p-4 border-t border-gray-200 bg-gray-50">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-              <span className="text-sm font-semibold">JD</span>
-            </div>
-            <div className="flex-1">
-              <p className="text-sm font-semibold text-gray-800">John Doe</p>
-              <p className="text-xs text-gray-500">Teacher</p>
-            </div>
-          </div>
-        </div>
-        */}
+   
       </aside>
 
       {/* ========================================
@@ -284,7 +274,8 @@ const Sidebar = ({children}) => {
 
   {/* SPACER */}
 
-  <div className="hidden lg:block w-64" />
+  {/* <div className="hidden lg:block w-64" /> */}
+  {isMobileMenuOpen && <div className="w-64" />}
 
   {/* MAIN PAGE CONTENT (Dashboard will come here) */}
 
