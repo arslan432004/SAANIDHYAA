@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAANIDHYA - Education for Specially Abled</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4A90E2;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .slideshow {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .slide-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 2;
+        }
+        .slide-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .slide-arrow.prev {
+            left: 20px;
+        }
+        .slide-arrow.next {
+            right: 20px;
+        }
+        .slide-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .slide-dot.active {
+            background-color: white;
+        }
+        .translucent-nav {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .translucent-nav.scrolled {
+            background: rgba(51, 65, 85, 0.9);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .translucent-nav.scrolled .nav-link {
+            color: white;
+        }
+        .translucent-nav.scrolled .nav-link:hover {
+            color: #4A90E2;
+        }
+        .translucent-nav.scrolled a {
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full transition-all duration-300 z-50 translucent-nav" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-white tracking-wider">SAANIDHYA</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-gray-200 transition duration-300">Home</a>
+                    <a href="#information" class="nav-link text-white hover:text-gray-200 transition duration-300">Information</a>
+                    <a href="#learn" class="nav-link text-white hover:text-gray-200 transition duration-300">Learn</a>
+                    <a href="#music" class="nav-link text-white hover:text-gray-200 transition duration-300">Music</a>
+                    <a href="#videos" class="nav-link text-white hover:text-gray-200 transition duration-300">Videos</a>
+                    <a href="#about" class="nav-link text-white hover:text-gray-200 transition duration-300">About</a>
+                    <a href="#contact" class="nav-link text-white hover:text-gray-200 transition duration-300">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Slideshow -->
+    <section id="home" class="min-h-screen">
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="images/slide1.jpg" alt="Inspiring Image 1" class="absolute w-full h-full object-cover">
+                <div class="slide-content">
+                    <h2 class="text-4xl font-bold mb-4">Empowering Through Education</h2>
+                    <p class="text-xl mb-6">Breaking barriers and creating opportunities for every learner</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/slide2.jpg" alt="Inspiring Image 2" class="absolute w-full h-full object-cover">
+                <div class="slide-content">
+                    <h2 class="text-4xl font-bold mb-4">Inclusive Learning</h2>
+                    <p class="text-xl mb-6">Creating a supportive environment where everyone can thrive</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/slide3.jpg" alt="Inspiring Image 3" class="absolute w-full h-full object-cover">
+                <div class="slide-content">
+                    <h2 class="text-4xl font-bold mb-4">Building Future Together</h2>
+                    <p class="text-xl mb-6">Fostering growth, independence, and lifelong learning</p>
+                </div>
+            </div>
+            
+            <div class="slide-arrow prev">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </div>
+            <div class="slide-arrow next">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
+            
+            <div class="slide-dots"></div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section id="information" class="min-h-screen py-20 bg-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Information</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 h-screen flex items-center">
+                    <img src="images/info-education.jpg" alt="Special Education" class="rounded-lg shadow-lg w-full h-[calc(100vh-200px)] object-cover object-center">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6">Every Child Is Special !!</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We are trying for the overall development of physically challenged kids. In case of learning phase they face various type of problems like various websites are out there, they are only made for the normal kids, but we still do not have any specialised website for these innocent kids. We will be working on developing several learning facilities like interactive quiz, notes, and music therapy for their mental wellbeing.
+                    </p>
+                    <a href="special-education.html" class="inline-block mt-8 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300">Learn More About Special Education »</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn Section -->
+    <section id="learn" class="min-h-screen py-20 bg-gray-50">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Learn</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6">The human spirit is one of ability, Hunger of learning, perseverance and courage</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We provide specialized learning resources tailored for differently-abled students. Our platform includes interactive lessons, adaptive learning tools, and engaging content designed to meet various learning needs.
+                    </p>
+                    <a href="https://pmevidya.education.gov.in/cwsn.html" target="_blank" class="inline-block mt-8 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300">Explore Learning Methods »</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/learn-classroom.jpg" alt="Inclusive Learning Environment" class="rounded-lg shadow-lg w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="min-h-screen py-20 bg-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Music</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6">A great man once said, "Where words fail, music speaks."</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        That man was Hans Christian Andersen, beloved Danish poet and author of several books for children. To keep it modern, Bono – the lead singer of alt-rock band U2 – is quoted as saying, "Music can change the world because it can change people." What these two influential artists have in common is the recognition that music is the one language we all speak, regardless of culture.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        Here is a stock of soothing music & rhymes for learners as music develops analytical thinking. Music therapy has been proven to help in cognitive development and emotional well-being of specially-abled children.
+                    </p>
+                    <div class="flex space-x-4 mt-8">
+                        <a href="https://specialedresource.com/music-therapy-children-special-needs" target="_blank" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300">Discover Music Therapy »</a>
+                        <a href="soothing-music.html" class="inline-block bg-amber-500 text-white px-6 py-2 rounded-full hover:bg-amber-600 transition duration-300">Listen to Soothing Music »</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/music-main.jpg" alt="Music Education" class="rounded-lg shadow-lg w-full h-[600px] object-cover object-center">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="min-h-screen py-20 bg-gray-50">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Videos</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6">All our dreams can come true, if we have the courage to pursue them.</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Welcome to our video library! Here you'll find an inspiring collection of educational content, success stories, and learning materials specifically designed for specially-abled students. Our videos include:
+                    </p>
+                    <ul class="text-gray-600 leading-relaxed mb-6 list-disc list-inside">
+                        <li>Interactive learning tutorials</li>
+                        <li>Inspirational success stories</li>
+                        <li>Educational content for different abilities</li>
+                        <li>Music therapy sessions</li>
+                        <li>Practical life skills guidance</li>
+                    </ul>
+                    <a href="videos.html" class="inline-block mt-8 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300">Watch Inspiring Videos »</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/videos.jpg" alt="Educational Videos" class="rounded-lg shadow-lg w-full h-[600px] object-cover object-center">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="min-h-screen py-20 bg-white">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Team Member Card -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="p-6">
+                        <div class="text-center mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-amber-500">
+                                <img src="images/profileImg.jpg" alt="Arslan Ali" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3 text-center">Arslan Ali</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Studying B.Tech in Computer Science and Engineering from Lovely Professional University. Proficient in JavaScript, JQuery, JAVA, Python, C, C++, HTML, and CSS.
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-pink-600 transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member Card -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="p-6">
+                        <div class="text-center mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-amber-500">
+                                <img src="images/profileImg.jpg" alt="Anil" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3 text-center">Anil Kumar Choudhary</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            B.Tech in Computer Science & Engineering from Lovely Professional University. Skilled in Web Development, C, C++, HTML, and CSS.
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-pink-600 transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member Card -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="p-6">
+                        <div class="text-center mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-amber-500">
+                                <img src="images/profileImg.jpg" alt="Piyush Raj" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3 text-center">Piyush Raj</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Pursuing B.Tech in Computer Science & Engineering. Proficient in C, C++, HTML, CSS, and Photoshop. Passionate about Database Management Systems.
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-pink-600 transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member Card -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div class="p-6">
+                        <div class="text-center mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-amber-500">
+                                <img src="images/profileImg.jpg" alt="Apurva Harsh" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3 text-center">Apurva Harsh</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Pursuing B.Tech in Computer Science & Engineering. Skilled in C, C++, HTML, CSS, and web development. Focused on creating intuitive user interfaces.
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-pink-600 transition-colors">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-screen py-20 bg-gray-50">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
+            <div class="max-w-2xl mx-auto">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-amber-500" required>
+                        <div id="name_error" class="text-red-500 text-sm mt-1"></div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-amber-500" required>
+                        <div id="email_error" class="text-red-500 text-sm mt-1"></div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-amber-500" required></textarea>
+                        <div id="message_error" class="text-red-500 text-sm mt-1"></div>
+                    </div>
+                    <div id="form_message" class="text-center"></div>
+                    <button type="submit" class="w-full bg-amber-500 text-white py-2 rounded-lg hover:bg-amber-600 transition duration-300">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="donation.html" class="bg-amber-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-amber-600 transition duration-300 transform hover:scale-105 flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Donate Now</span>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <script>
+        // Navbar scroll behavior
+        const navbar = document.getElementById('navbar');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            
+            // Check if we're past the hero section (first screen)
+            if (scrollTop > windowHeight) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Add a semi-transparent background when hovering over navbar
+        navbar.addEventListener('mouseenter', () => {
+            if (!navbar.classList.contains('scrolled')) {
+                navbar.classList.add('scrolled');
+            }
+        });
+
+        navbar.addEventListener('mouseleave', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            
+            if (scrollTop < windowHeight) {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Slideshow functionality
+        const slideshow = {
+            currentSlide: 0,
+            slides: document.querySelectorAll('.slide'),
+            dots: document.querySelector('.slide-dots'),
+            interval: null,
+
+            init() {
+                // Create dots
+                this.slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.className = `slide-dot ${index === 0 ? 'active' : ''}`;
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                    this.dots.appendChild(dot);
+                });
+
+                // Add arrow click handlers
+                document.querySelector('.slide-arrow.prev').addEventListener('click', () => this.prevSlide());
+                document.querySelector('.slide-arrow.next').addEventListener('click', () => this.nextSlide());
+
+                // Start automatic slideshow
+                this.startAutoPlay();
+
+                // Pause on hover
+                const slideshowElement = document.querySelector('.slideshow');
+                slideshowElement.addEventListener('mouseenter', () => this.stopAutoPlay());
+                slideshowElement.addEventListener('mouseleave', () => this.startAutoPlay());
+            },
+
+            goToSlide(index) {
+                this.slides[this.currentSlide].classList.remove('active');
+                this.dots.children[this.currentSlide].classList.remove('active');
+                
+                this.currentSlide = index;
+                
+                this.slides[this.currentSlide].classList.add('active');
+                this.dots.children[this.currentSlide].classList.add('active');
+            },
+
+            nextSlide() {
+                const next = (this.currentSlide + 1) % this.slides.length;
+                this.goToSlide(next);
+            },
+
+            prevSlide() {
+                const prev = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                this.goToSlide(prev);
+            },
+
+            startAutoPlay() {
+                this.interval = setInterval(() => this.nextSlide(), 8000);
+            },
+
+            stopAutoPlay() {
+                clearInterval(this.interval);
+            }
+        };
+
+        // Initialize slideshow
+        document.addEventListener('DOMContentLoaded', () => {
+            slideshow.init();
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous error messages
+            document.querySelectorAll('.text-red-500').forEach(el => el.textContent = '');
+            document.getElementById('form_message').textContent = '';
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Disable submit button
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Send form data
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    document.getElementById('form_message').textContent = data.message;
+                    document.getElementById('form_message').className = 'text-green-500 text-center';
+                    
+                    // Reset form
+                    this.reset();
+                } else {
+                    // Show error messages
+                    if (data.errors) {
+                        data.errors.forEach(error => {
+                            if (error.includes('Name')) {
+                                document.getElementById('name_error').textContent = error;
+                            } else if (error.includes('Email')) {
+                                document.getElementById('email_error').textContent = error;
+                            } else if (error.includes('Message')) {
+                                document.getElementById('message_error').textContent = error;
+                            }
+                        });
+                    } else {
+                        document.getElementById('form_message').textContent = data.message;
+                        document.getElementById('form_message').className = 'text-red-500 text-center';
+                    }
+                }
+            })
+            .catch(error => {
+                document.getElementById('form_message').textContent = 'An error occurred. Please try again later.';
+                document.getElementById('form_message').className = 'text-red-500 text-center';
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            });
+        });
+    </script>
+</body>
+</html> 

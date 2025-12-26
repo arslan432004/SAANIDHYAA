@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Videos - SAANIDHYA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4A90E2;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .translucent-nav {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .translucent-nav.scrolled {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .video-card {
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+        .video-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .video-card:hover::before {
+            opacity: 1;
+        }
+        .video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .video-card:hover .video-overlay {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-amber-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 translucent-nav" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-gray-800 tracking-wider">SAANIDHYA</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="index.html#information" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Information</a>
+                    <a href="index.html#learn" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Learn</a>
+                    <a href="index.html#music" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Music</a>
+                    <a href="index.html#videos" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Videos</a>
+                    <a href="index.html#about" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="index.html#contact" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-r from-blue-500 to-amber-500">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Educational Videos</h1>
+                <p class="text-xl text-white opacity-90">Discover engaging and accessible learning content for specially-abled children.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="video-card bg-white" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative aspect-video">
+                        <div class="w-full h-full">
+                            <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/4WIP1VgPnco?si=-7oBYhcV4DH_Rir8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-overlay">
+                            <h3 class="text-xl font-semibold text-white mb-2">Interactive Learning</h3>
+                            <p class="text-gray-200">Fun and engaging activities for cognitive development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card bg-white" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative aspect-video">
+                        <div class="w-full h-full">
+                            <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/6P2nPI6CTlc?si=fsUm-ThtKTs_p0Fy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-overlay">
+                            <h3 class="text-xl font-semibold text-white mb-2">Sensory Activities</h3>
+                            <p class="text-gray-200">Stimulating exercises for sensory development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card bg-white" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative aspect-video">
+                        <div class="w-full h-full">
+                            <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/meOWV1w2GE8?si=P9qRbSoz-ElPZXHj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-overlay">
+                            <h3 class="text-xl font-semibold text-white mb-2">Communication Skills</h3>
+                            <p class="text-gray-200">Building effective communication through play.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="video-card bg-white" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative aspect-video">
+                        <div class="w-full h-full">
+                            <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/8jPQjjsBbIc?si=xcoDz__jpD3uo-uR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-overlay">
+                            <h3 class="text-xl font-semibold text-white mb-2">Motor Skills</h3>
+                            <p class="text-gray-200">Activities to enhance fine and gross motor skills.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="video-card bg-white" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative aspect-video">
+                        <div class="w-full h-full">
+                            <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/1JeAqR6bmws?si=x4kJtZ1GniywDRXd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-overlay">
+                            <h3 class="text-xl font-semibold text-white mb-2">Social Skills</h3>
+                            <p class="text-gray-200">Developing social interaction and emotional intelligence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="video-card bg-white" data-aos="fade-up" data-aos-delay="600">
+                    <div class="relative aspect-video">
+                        <div class="w-full h-full">
+                            <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/L7dTY90Mww8?si=zMqVpmWumvKQn8fp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-overlay">
+                            <h3 class="text-xl font-semibold text-white mb-2">Creative Expression</h3>
+                            <p class="text-gray-200">Encouraging creativity and self-expression.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">SAANIDHYA</h2>
+                    <p class="text-gray-400 mt-2">Education for Specially Abled</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-white transition duration-300">Contact Us</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SAANIDHYA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Navbar scroll behavior
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html> 

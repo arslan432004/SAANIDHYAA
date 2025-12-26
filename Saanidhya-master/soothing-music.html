@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soothing Music - SAANIDHYA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4A90E2;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .translucent-nav {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .translucent-nav.scrolled {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .music-card {
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .music-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .music-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(74, 144, 226, 0.1), rgba(245, 158, 11, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .music-card:hover::before {
+            opacity: 1;
+        }
+        .audio-controls {
+            transition: all 0.3s ease;
+        }
+        .audio-controls:hover {
+            transform: scale(1.05);
+        }
+        .music-container {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(245, 158, 11, 0.1)), url('images/music-melody.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .music-title {
+            position: relative;
+            display: inline-block;
+        }
+        .music-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, transparent, #4A90E2, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .music-card:hover .music-title::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-amber-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 translucent-nav" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-gray-800 tracking-wider">SAANIDHYA</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="index.html#information" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Information</a>
+                    <a href="index.html#learn" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Learn</a>
+                    <a href="index.html#music" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Music</a>
+                    <a href="index.html#videos" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Videos</a>
+                    <a href="index.html#about" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="index.html#contact" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-r from-blue-500 to-amber-500">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Soothing Music</h1>
+                <p class="text-xl text-white opacity-90">Relaxing melodies for cognitive development and emotional well-being.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section class="py-20 music-container">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Music Player 1 -->
+                    <div class="music-card p-6" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="music-title text-xl font-semibold text-gray-800 mb-4">Calming Music</h3>
+                        <div class="audio-controls">
+                            <audio controls class="w-full rounded-lg">
+                                <source src="music/calming-music-1.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- Music Player 2 -->
+                    <div class="music-card p-6" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="music-title text-xl font-semibold text-gray-800 mb-4">Soothing Melody</h3>
+                        <div class="audio-controls">
+                            <audio controls class="w-full rounded-lg">
+                                <source src="music/soothing-melody-1.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- Music Player 3 -->
+                    <div class="music-card p-6" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="music-title text-xl font-semibold text-gray-800 mb-4">Relaxing Sounds</h3>
+                        <div class="audio-controls">
+                            <audio controls class="w-full rounded-lg">
+                                <source src="music/relaxing-sounds-1.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- Music Player 4 -->
+                    <div class="music-card p-6" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="music-title text-xl font-semibold text-gray-800 mb-4">Peaceful Music</h3>
+                        <div class="audio-controls">
+                            <audio controls class="w-full rounded-lg">
+                                <source src="music/peaceful-music-1.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="index.html" class="inline-block bg-white text-gray-800 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">SAANIDHYA</h2>
+                    <p class="text-gray-400 mt-2">Education for Specially Abled</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-white transition duration-300">Contact Us</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SAANIDHYA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Navbar scroll behavior
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html> 
