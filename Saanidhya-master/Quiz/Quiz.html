@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>S A A N I D H Y A : Quiz</title>
+    <link rel="shortcut icon" href="../../Home/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .quiz-card:hover {
+            transform: scale(1.03);
+            transition: 0.3s ease-in-out;
+        }
+        body{
+            background-image: url("/images/kids-quiz-playing-intelligent-boy-and-girl-vector.jpg");
+            background-size: auto ;
+        }
+    </style>
+</head>
+
+<body class=" text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <nav class="fixed top-0 w-full transition-all duration-300 z-50 py-4 bg-gradient-to-r from-blue-400 to-blue-700 id="navbar">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <a href="#" class="text-2xl font-bold text-black tracking-wider">SAANIDHYA</a>
+                    </div>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="../index.html" class="nav-link text-black hover:text-gray-200 transition duration-300">Home</a>
+                        <a href="../index.html#information" class="nav-link text-black hover:text-gray-200 transition duration-300">Information</a>
+                        <a href="../index.html#learn" class="nav-link text-black hover:text-gray-200 transition duration-300">Learn</a>
+                        <a href="../index.html#music" class="nav-link text-black hover:text-gray-200 transition duration-300">Music</a>
+                        <a href="../index.html#videos" class="nav-link text-black hover:text-gray-200 transition duration-300">Videos</a>
+                        <a href="../index.html#about" class="nav-link text-black hover:text-gray-200 transition duration-300">About</a>
+                        <a href="../index.html#contact" class="nav-link text-black hover:text-gray-200 transition duration-300">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+          </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold text-center mb-12 text-blue-700">Choose the Difficulty Level and Take the Quiz</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            <!-- Math Quiz -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 text-center quiz-card">
+                <h2 class="text-2xl font-semibold text-purple-600 mb-6">The Math Quiz</h2>
+                <div class="space-y-4">
+                    <button onclick="openQuiz('MathEasyQuiz.html')" class="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-600">Easy</button>
+                    <button onclick="openQuiz('MathMedQuiz.html')" class="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-600">Medium</button>
+                    <button onclick="openQuiz('MathHardQuiz.html')" class="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-600">Hard</button>
+                </div>
+            </div>
+
+            <!-- Science Quiz -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 text-center quiz-card">
+                <h2 class="text-2xl font-semibold text-green-600 mb-6">The Science Quiz</h2>
+                <div class="space-y-4">
+                    <button onclick="openQuiz('scienceeasy.html')" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600">Easy</button>
+                    <button onclick="openQuiz('sciencemedium.html')" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600">Medium</button>
+                    <button onclick="openQuiz('sciencehard.html')" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600">Hard</button>
+                </div>
+            </div>
+
+            <!-- English Quiz -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 text-center quiz-card">
+                <h2 class="text-2xl font-semibold text-pink-600 mb-6">The English Quiz</h2>
+                <div class="space-y-4">
+                    <button onclick="openQuiz('EnglishEasyquiz.html')" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600">Easy</button>
+                    <button onclick="openQuiz('EnglishMedquiz.html')" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600">Medium</button>
+                    <button onclick="openQuiz('EnglishHardquiz.html')" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600">Hard</button>
+                </div>
+            </div>
+
+            <!-- GK Quiz -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 text-center quiz-card">
+                <h2 class="text-2xl font-semibold text-yellow-600 mb-6">The G.K. Quiz</h2>
+                <div class="space-y-4">
+                    <button onclick="openQuiz('gkeasy.html')" class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600">Easy</button>
+                    <button onclick="openQuiz('gkmedium.html')" class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600">Medium</button>
+                    <button onclick="openQuiz('gkhard.html')" class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600">Hard</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm">
+        &copy; 2020 SAANIDHYA, Inc. All rights reserved.
+    </footer>
+
+    <!-- Script -->
+    <script>
+        function openQuiz(url) {
+            window.open(url, "_blank");
+        }
+    </script>
+
+</body>
+</html>

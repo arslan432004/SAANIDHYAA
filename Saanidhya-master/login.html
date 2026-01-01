@@ -24,9 +24,131 @@
             font-size: 0.875rem;
             margin-top: 0.25rem;
         }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4A90E2;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .slideshow {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .slide-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 2;
+        }
+        .slide-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .slide-arrow.prev {
+            left: 20px;
+        }
+        .slide-arrow.next {
+            right: 20px;
+        }
+        .slide-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .slide-dot.active {
+            background-color: white;
+        }
+        .translucent-nav {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .translucent-nav.scrolled {
+            background: rgba(51, 65, 85, 0.9);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .translucent-nav.scrolled .nav-link {
+            color: white;
+        }
+        .translucent-nav.scrolled .nav-link:hover {
+            color: #4A90E2;
+        }
+        .translucent-nav.scrolled a {
+            color: white;
+        }
+    
     </style>
 </head>
 <body>
+    <nav class="fixed top-0 w-full transition-all duration-300 z-50 translucent-nav py-4" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-center">
+                <a href="#" class="text-2xl font-bold text-white tracking-wider">SAANIDHYA</a>
+            </div>
+        </div>
+    </nav>
+    
     <div class="auth-container">
         <div class="max-w-md w-full bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="px-6 py-8">
