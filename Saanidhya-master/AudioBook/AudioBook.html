@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" />
+    <title>SAANIDHYA :: AUDIO-BOOK</title>
+    <style>
+      #aplayer {
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 -2px 2px #dadada;
+        background-color: #fff;
+        transition: all ease 0.5s;
+      }
+      #aplayer.showPlayer {
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <nav class="fixed top-0 w-full transition-all duration-300 z-50 py-4 bg-gradient-to-r from-yellow-400 to-orange-500" id="navbar">
+	<div class="container mx-auto px-6 py-4">
+		<div class="flex items-center justify-between">
+			<div class="flex items-center">
+				<a href="#" class="text-2xl font-bold text-black tracking-wider">SAANIDHYA</a>
+			</div>
+			<div class="hidden md:flex space-x-8">
+				<a href="../index.html" class="nav-link text-black hover:text-gray-200 transition duration-300">Home</a>
+				<a href="../index.html#information" class="nav-link text-black hover:text-gray-200 transition duration-300">Information</a>
+				<a href="../index.html#learn" class="nav-link text-black hover:text-gray-200 transition duration-300">Learn</a>
+				<a href="../index.html#music" class="nav-link text-black hover:text-gray-200 transition duration-300">Music</a>
+				<a href="../index.html#videos" class="nav-link text-black hover:text-gray-200 transition duration-300">Videos</a>
+				<a href="../index.html#about" class="nav-link text-black hover:text-gray-200 transition duration-300">About</a>
+				<a href="../index.html#contact" class="nav-link text-black hover:text-gray-200 transition duration-300">Contact Us</a>
+			</div>
+		</div>
+	</div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  
+  <body class="bg-gray-100 font-sans">
+
+    <div class="py-10">
+      <div class="max-w-7xl mx-auto px-4">
+        <h3 class="text-3xl font-semibold border-b-4 border-gray-300 pb-4 mb-8">Audio Books</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          <template id="albumTemplate">
+            <div>
+              <a href="javascript:void(0);" class="album-poster block rounded-lg overflow-hidden shadow-lg hover:shadow-none transform hover:scale-95 transition" data-switch="">
+                <img src="" alt="" class="w-full h-48 object-cover">
+              </a>
+              <h4 class="text-sm font-bold mt-3 text-center"></h4>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <div id="aplayer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+    <script>
+      const albumData = [
+        {img: 'i1.jpeg'}, {img: 'i2.jpeg'}, {img: 'i3.jpeg'}, {img: 'i4.jpeg'},
+        {img: 'i5.jpeg'}, {img: 'i6.jpeg'} 
+      ];
+
+      const grid = document.querySelector('.grid');
+      const template = document.getElementById('albumTemplate');
+
+      albumData.forEach((item, index) => {
+        const clone = template.content.cloneNode(true);
+        const poster = clone.querySelector('.album-poster');
+        poster.setAttribute('data-switch', index);
+        poster.querySelector('img').src = item.img;
+        grid.appendChild(clone);
+      });
+
+      const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        listFolded: true,
+        audio: [
+          { url: 'g1.mp3', cover: 'g1.jpg' },
+          { url: 'g2.mp3', cover: 'g2.jpg' },
+          { url: 'g3.mp3', cover: 'g3.png' },
+          { url: 'g4.mp3', cover: 'g4.jpg' },
+          { url: 'g5.mp3', cover: 'g5.jpg' },
+          { url: 'g6.mp3', cover: 'g6.jpg' },
+          { url: 'g7.mp3', cover: 'g7.jpg' },
+          { url: 'g8.mp3', cover: 'g8.jpg' }
+        ]
+      });
+
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('.album-poster')) {
+          const index = e.target.closest('.album-poster').dataset.switch;
+          ap.list.switch(index);
+          ap.play();
+          document.getElementById('aplayer').classList.add('showPlayer');
+        }
+      });
+    </script>
+  </body>
+</html>
