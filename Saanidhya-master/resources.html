@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - SAANIDHYA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .resource-card {
+            transition: transform 0.3s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Include Navigation -->
+    <div id="navbar-container"></div>
+
+    <!-- Resources Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Educational Resources</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Resource Card 1 -->
+                <div class="resource-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Interactive Learning Tools</h3>
+                        <p class="text-gray-600 mb-4">Access our collection of interactive learning tools designed specifically for differently-abled students.</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600">Explore Tools →</a>
+                    </div>
+                </div>
+
+                <!-- Resource Card 2 -->
+                <div class="resource-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Educational Worksheets</h3>
+                        <p class="text-gray-600 mb-4">Download printable worksheets and activities tailored for various learning needs.</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600">Download Worksheets →</a>
+                    </div>
+                </div>
+
+                <!-- Resource Card 3 -->
+                <div class="resource-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Parent Guides</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive guides for parents to support their child's learning journey.</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600">Read Guides →</a>
+                    </div>
+                </div>
+
+                <!-- Resource Card 4 -->
+                <div class="resource-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Teacher Resources</h3>
+                        <p class="text-gray-600 mb-4">Specialized resources and lesson plans for educators working with differently-abled students.</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600">Access Resources →</a>
+                    </div>
+                </div>
+
+                <!-- Resource Card 5 -->
+                <div class="resource-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Assistive Technology</h3>
+                        <p class="text-gray-600 mb-4">Information about various assistive technologies and how to implement them.</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- Resource Card 6 -->
+                <div class="resource-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Success Stories</h3>
+                        <p class="text-gray-600 mb-4">Inspirational stories of students who have overcome challenges through education.</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600">Read Stories →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold">SAANIDHYA</h3>
+                    <p class="text-gray-400">Education for Specially Abled</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Load Navigation
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html> 
